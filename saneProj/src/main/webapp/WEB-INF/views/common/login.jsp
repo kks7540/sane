@@ -37,37 +37,14 @@
 	$( document ).ready( function() {
 		login.init();
 		var id = "<%=userId%>";
-		/*register - hover*/
-		$('#ra').hover(function() {
-		  $(this).css("color", "#57b846")
-		  		 .css("text-decoration", "underline");
-		}, function(){
-			$(this).css("color", "#808080")
-	  		 .css("text-decoration", "none");
-		});
-		/*forgot password - hover*/
-		$('#fp').hover(function() {
-			  $(this).css("color", "#57b846")
-			  		 .css("text-decoration", "underline");
-			}, function(){
-				$(this).css("color", "#808080")
-		  		 .css("text-decoration", "none");
-			});
+
+		if(id==null||id==""){
+			$('input:checkbox[id="ckb1"]').prop("checked", false);
+		}else{
+			$('input:checkbox[id="ckb1"]').prop("checked", true);
+		}
 
 	});
-
-	/*register an Account*/
-	function fn_register(){
-			$('#alert_title').text("계정등록");
-			$('#alert_message').text("계정등록");
-			$('#alert_type').val("username");
-			$('#modal_alert').modal();
-	}
-	/*forgot password*/
-	function fn_forgot_password(){
-		alert("패스워드찾기");
-
-	}
 
 </script>
 </head>
@@ -83,15 +60,15 @@
 				</div>
 
 				<form class="login100-form validate-form" id="login_form">
-					<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
-						<span class="label-input100">UserID</span>
-						<input class="input100" type="text" name="username" id="username" placeholder="Enter username" autocomplete="off">
+					<div class="wrap-input100 validate-input m-b-26" data-validate="UserId is required">
+						<span class="label-input100">UserId</span>
+						<input class="input100" type="text" name="UserId" id="UserId" placeholder="Enter UserID" autocomplete="off" value="<%=userId%>">
 						<span class="focus-input100"></span>
 					</div>
 
-					<div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
-						<span class="label-input100">Password</span>
-						<input class="input100" type="password" name="pass" id="pass" placeholder="Enter password" autocomplete="off">
+					<div class="wrap-input100 validate-input m-b-18" data-validate = "userPwdword is required">
+						<span class="label-input100">password</span>
+						<input class="input100" type="password" name="userPwd" id="userPwd" placeholder="Enter password" autocomplete="off">
 						<span class="focus-input100"></span>
 					</div>
 
@@ -109,8 +86,8 @@
 						</button>
 					</div>
 					<div class="w-full text-right">
-			          <p id="ra" class="d-block small mt-3 txt1" onclick="fn_register()" style="cursor:pointer; color:#808080;">Register an Account</p>
-			          <p id="fp" class="d-block small txt1" onclick="fn_forgot_password()" style="cursor:pointer; color:#808080;">Forgot Password?</p>
+			          <p id="register" class="d-block small mt-3 txt1" style="cursor:pointer; color:#808080;">Register an Account</p>
+			          <p id="losspwd" class="d-block small txt1" style="cursor:pointer; color:#808080;">Forgot password?</p>
 			        </div>
 				</form>
 			</div>
