@@ -2,6 +2,9 @@ package sane.co.kr.common.dao;
 
 import org.springframework.stereotype.Repository;
 
+import sane.co.kr.common.vo.LoginVO;
+import sane.co.kr.common.vo.UserMastVO;
+
 /**
  * CommonDAO
  *
@@ -20,8 +23,6 @@ import org.springframework.stereotype.Repository;
  */
 
 @Repository("sane.co.kr.common.commonDAO")
-public interface CommonDAO {
-
-	//public UserVO selectLoginUserInfo(LoginVO loginVO);
+public class CommonDAO {
 
 }

@@ -77,11 +77,11 @@ public class CommonController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value = "/common/loginValChk.ajax")
+	@RequestMapping(value = "/common/loginValChk.do")
 	@ResponseBody
 	public Map<String, Object> loginValChk(HttpServletRequest request, HttpServletResponse response,
 			@ModelAttribute("loginVO") LoginVO loginVO, ModelMap model, SessionStatus status) throws Exception {
-		logger.info("[loginValChk.ajax] loginVO : " + loginVO);
+		logger.info("[loginValChk.do] loginVO : " + loginVO);
 		//test
 		Map<String, Object> resultMap = commonService.loginValChk(loginVO, response);
 		return resultMap;

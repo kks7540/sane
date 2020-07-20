@@ -59,22 +59,22 @@
 					</span>
 				</div>
 
-				<form class="login100-form validate-form" id="login_form">
+				<form id="loginForm" class="login100-form validate-form">
 					<div class="wrap-input100 validate-input m-b-26" data-validate="UserId is required">
 						<span class="label-input100">UserId</span>
-						<input class="input100" type="text" name="UserId" id="UserId" placeholder="Enter UserID" autocomplete="off" value="<%=userId%>">
+						<input class="input100" type="text" name="userId" id="userId" placeholder="Enter UserID" autocomplete="off" value="<%=userId%>">
 						<span class="focus-input100"></span>
 					</div>
 
-					<div class="wrap-input100 validate-input m-b-18" data-validate = "userPwdword is required">
+					<div class="wrap-input100 validate-input m-b-18" data-validate = "userPwd is required">
 						<span class="label-input100">password</span>
-						<input class="input100" type="password" name="userPwd" id="userPwd" placeholder="Enter password" autocomplete="off">
+						<input class="input100" type="password" name="userPwd" id="userPwd" placeholder="Enter userPwd" autocomplete="off">
 						<span class="focus-input100"></span>
 					</div>
 
 					<div class="flex-sb-m w-full p-b-30">
 						<div class="contact100-form-checkbox">
-							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+							<input class="input-checkbox100" id="ckb1" type="checkbox" name="ckb1">
 							<label class="label-checkbox100" for="ckb1">
 								Remember ID
 							</label>

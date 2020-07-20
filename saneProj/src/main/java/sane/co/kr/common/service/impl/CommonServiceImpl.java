@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Service;
 
-import sane.co.kr.common.dao.CommonDAO;
 import sane.co.kr.common.service.CommonService;
 import sane.co.kr.common.vo.LoginVO;
 import sane.co.kr.common.vo.UserMastVO;
@@ -35,8 +34,8 @@ import sane.co.kr.core.CommonUtils;
 @Service("sane.co.kr.common.commonService")
 public class CommonServiceImpl implements CommonService {
 
-	@Resource(name = "sane.co.kr.common.commonDAO")
-	private CommonDAO commonDAO;
+//	@Resource(name = "sane.co.kr.common.commonDAO")
+//	private CommonDAO commonDAO;
 
 	@Resource(name = "sane.co.kr.core.commonUtils")
 	private CommonUtils commonUtils;
@@ -46,20 +45,25 @@ public class CommonServiceImpl implements CommonService {
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 
 		// 패스워드 암호화
-		String password = commonUtils.encryptHashString(loginVO.getUserPwd());
-		loginVO.setUserPwd(password);
+		//String password = commonUtils.encryptHashString(loginVO.getUserPwd());
+		//loginVO.setUserPwd(password);
 
 		//UserVO userMastVO = commonDAO.selectLoginuserMastVO(loginVO);
 
 		//test
 		UserMastVO userMastVO= new UserMastVO();
-		if(!"sane".equals(loginVO.getUserId()) && !"sanePwd".equals(loginVO.getUserPwd())) {
-			userMastVO = null;
-		}else {
+		System.out.println(loginVO.toString());
+		System.out.println(loginVO.getUserId());
+		System.out.println("sanepwd".equals(loginVO.getUserPwd()));
+		System.out.println("sane".equals(loginVO.getUserId()));
+		System.out.println("sanepwd".equals(loginVO.getUserPwd()));
+		if("sane".equals(loginVO.getUserId()) && "sanepwd".equals(loginVO.getUserPwd())) {
 			userMastVO.setUserId("sane");
-			userMastVO.setUserId("sanePwd");
+			userMastVO.setUserId("sanepwd");
 			userMastVO.setAuthId("M");//MASTER 계정
 			userMastVO.setUseYn("Y");
+		}else {
+			userMastVO = null;
 		}
 
 
@@ -100,7 +104,7 @@ public class CommonServiceImpl implements CommonService {
 		//test
 		UserMastVO userMastVO= new UserMastVO();
 		userMastVO.setUserId("sane");
-		userMastVO.setUserId("sanePwd");
+		userMastVO.setUserId("sanepwd");
 		userMastVO.setAuthId("M");//MASTER 계정
 		userMastVO.setUseYn("Y");
 		//commonDAO.selectLoginUserMastVO(loginVO)
