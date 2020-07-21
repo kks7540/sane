@@ -59,10 +59,10 @@ var login = new function() {
 			$('#modal_alert').modal();
 			return;
 		}//비밀번호 검사
-		if(!$.trim($("#pass").val())) {
+		if(!$.trim($("#userPwd").val())) {
  			$('#alert_title').text("로그인 실패");
 			$('#alert_message').text("비밀번호를 입력해 주세요.");
-			$('#alert_type').val("pass");
+			$('#alert_type').val("userPwd");
 			$('#modal_alert').modal();
 			return;
 		}
@@ -74,7 +74,7 @@ var login = new function() {
 
 		//로그인 유효성 검사.
 		$.ajax ({
-			url : ctx +"/common/loginValChk.ajax",
+			url : ctx +"/common/loginValChk.do",
 			type : "post",
 			dataType : "json",
 			data : {userId : $("#userId").val() , userPwd : $("#userPwd").val() ,ckb1 : $("#ckb1").val()},
@@ -85,6 +85,7 @@ var login = new function() {
 				return;
 			},
 			success: function(r) {
+
 				if(r.result=="false"){
 		 			$('#alert_title').text("로그인 실패");
 					$('#alert_message').text(r.message);
@@ -92,7 +93,7 @@ var login = new function() {
 					$('#modal_alert').modal();
 				}else if(r.result=="true"){
 					$('#loginForm').attr('method', 'post');
-					$('#loginForm').attr('action', ctx + '/common/afterAdminLogin.do');
+					$('#loginForm').attr('action', ctx + "/common/afterAdminLogin.do");
 					$('#loginForm').submit();
 				}
 			}
