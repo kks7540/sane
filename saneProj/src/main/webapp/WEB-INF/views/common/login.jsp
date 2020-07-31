@@ -19,7 +19,7 @@
 <%@ include file="/WEB-INF/views/common/common.jsp"%>
 <!-- page script -->
 <script type="text/javascript" src="${custom_js_path}/login/loginForm.js"></script>
-<!-- page script -->
+
 <!-- page script -->
 <%
 	Cookie[] cookie = request.getCookies();
@@ -35,6 +35,7 @@
 <script type="text/javascript">
 
 	$( document ).ready( function() {
+
 		login.init();
 		var id = "<%=userId%>";
 
@@ -60,6 +61,7 @@
 				</div>
 
 				<form id="loginForm" class="login100-form validate-form">
+
 					<div class="wrap-input100 validate-input m-b-26" data-validate="UserId is required">
 						<span class="label-input100">UserId</span>
 						<input class="input100" type="text" name="userId" id="userId" placeholder="Enter UserID" autocomplete="off" value="<%=userId%>">
@@ -81,33 +83,30 @@
 						</div>
 					</div>
 					<div class="w-full text-right">
-						<button class="login100-form-btn w-full text-right" id="btn_login">
-							Login
-						</button>
+						<input type="button" class="login100-form-btn w-full text-right" id="btn_login" value ="login">
 					</div>
 					<div class="w-full text-right">
 			          <p id="register" class="d-block small mt-3 txt1" style="cursor:pointer; color:#808080;">Register an Account</p>
 			          <p id="losspwd" class="d-block small txt1" style="cursor:pointer; color:#808080;">Forgot password?</p>
 			        </div>
+			        <input type="text" style="width 0px; visibility: hidden;">
 				</form>
 			</div>
 		</div>
 	</div>
 	<!-- alert modal -->
-	<div id="modal_alert" class="modal fade" data-backdrop="false">
+ 	<div id="modal_alert" class="modal fade" data-backdrop="false">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<h5 class="modal-title" id="alert_title"></h5>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
 				</div>
 				<div class="modal-body" id="alert_message">
 				</div>
 				<input type="hidden" id="alert_type"/>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-primary" id="btnOk_alert">확인</button>
-					<!-- <button type="button" class="btn btn-link" data-dismiss="modal">취소</button> -->
-					<!--<button type="button" class="btn btn-default" id="btnCancel">취소</button>-->
 				</div>
 			</div>
 		</div>

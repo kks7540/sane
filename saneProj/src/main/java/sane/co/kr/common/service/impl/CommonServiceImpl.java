@@ -52,11 +52,7 @@ public class CommonServiceImpl implements CommonService {
 
 		//test
 		UserMastVO userMastVO= new UserMastVO();
-		System.out.println(loginVO.toString());
-		System.out.println(loginVO.getUserId());
-		System.out.println("sanepwd".equals(loginVO.getUserPwd()));
-		System.out.println("sane".equals(loginVO.getUserId()));
-		System.out.println("sanepwd".equals(loginVO.getUserPwd()));
+
 		if("sane".equals(loginVO.getUserId()) && "sanepwd".equals(loginVO.getUserPwd())) {
 			userMastVO.setUserId("sane");
 			userMastVO.setUserId("sanepwd");
@@ -65,8 +61,6 @@ public class CommonServiceImpl implements CommonService {
 		}else {
 			userMastVO = null;
 		}
-
-
 		// ID, PASSWORD 확인.
 		if (userMastVO == null) {
 			resultMap.put("result", "false");

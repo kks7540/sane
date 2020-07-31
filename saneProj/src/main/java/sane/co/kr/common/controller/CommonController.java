@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -56,7 +57,7 @@ public class CommonController {
 	 */
 	@RequestMapping(value = "/common/main.do", method = RequestMethod.GET)
 	public String main(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
+		logger.info("Welcome main! The client locale is {}.", locale);
 
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
@@ -115,5 +116,28 @@ public class CommonController {
 		status.setComplete();
 
 		return "redirect:/common/main.do";
+	}
+	/** 관리자 로그인아웃 처리.
+	 *
+	 * @param request
+	 * @param response
+	 * @param loginVO
+	 * @param model
+	 * @param status
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/common/afterAdminLogout.do")
+	public String afterAdminLogout(HttpServletRequest request, HttpServletResponse response,
+			@ModelAttribute("loginVO") LoginVO loginVO, ModelMap model, SessionStatus status) throws Exception {
+		logger.info("[afterAdminLogin.do] loginVO : " + loginVO);
+
+		HttpSession session = request.getSession();
+		session.setAttribute("loginVO", null);
+		session.invalidate();
+		// 중복 submit방지
+		status.setComplete();
+
+		return "redirect:/common/login.do";
 	}
 }
