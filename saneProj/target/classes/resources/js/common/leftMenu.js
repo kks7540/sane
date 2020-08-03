@@ -3,43 +3,6 @@ var leftMenu = new function() {
 	var that = this;
 	that.init = function() {
 
-		// 회원 정보 저장 버튼
-		$('#mngr_saveMngrBtn').click(function() {
-			that.fn_mngr_saveMngrBtn();
-		});
-		// 회원 정보 취소 버튼
-		$('#mngr_closeMngrBtn').click(function() {
-			that.fn_mngr_closeMngrBtn();
-		});
-		// confirm 창 확인 버튼
-		$('#btnOk_confirm_mngr').click(function() {
-			that.fn_btnOk_confirm_mngr();
-		});
-		// confirm 창 취소 버튼
-		$('#btnCancel_confirm_mngr').click(function() {
-			that.fn_btnCancel_confirm_mngr();
-		});
-		// alert 창 확인버튼
-		$('#btnOk_alert_mngr').click(function() {
-			that.fn_btnOk_alert_mngr();
-		});
-		// 비밀번호 변경 창 버튼
-		$('#mngr_pwdChangeBtn').click(function() {
-			that.fn_pwdChangeBtn();
-		});
-		// 비밀번호 변경 확인 버튼
-		$('#pwdChangSaveBtn').click(function() {
-			that.fn_pwdChangSaveBtn();
-		});
-		// 비밀번호 변경 취소 버튼
-		$('#pwdChangCloseBtn').click(function() {
-			that.fn_pwdChangCloseBtn();
-		});
-		//관리자 수정 화면 메일 콤보박스 값 변경.
-		$('#mngr_selectMailAddr').change(function() {
-			that.fn_mngr_selectMailAddr();
-		});
-
 	},
 	that.fn_mngr_saveMngrBtn = function() {
 		// 이름 검사.

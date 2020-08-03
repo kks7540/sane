@@ -5,13 +5,15 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
                         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
+	<!-- Oracle
     <bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="basicDataSource" />
         <property value="classpath:/config/mybatis-config.xml" name="configLocation" />
         <property name="mapperLocations">
 			<list>
-				<value>classpath:/mapper/oracle/**/*.xml</value>
+				<value>classpath:/mapper/**/*.xml</value>
 			</list>
         </property>
     </bean>
+    -->
 </beans>
