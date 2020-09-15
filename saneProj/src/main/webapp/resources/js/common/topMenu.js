@@ -6,11 +6,19 @@ var topMenu = new function() {
 		$('#btn_logout').click(function() {
 			that.fn_logout();
 		});
+		$('#btn_main').click(function() {
+			that.fn_main();
+		});
 
 	},
 	that.fn_logout = function() {
 
 		location.href = ctx + '/common/afterAdminLogout.do';
+
+	},
+	that.fn_main = function() {
+
+		location.href = ctx + '/common/main.do';
 
 	},
 	//alert 창 확인 버튼

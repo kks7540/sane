@@ -66,7 +66,7 @@ public class CommonController {
 
 		model.addAttribute("serverTime", formattedDate );
 
-		return "common/main";
+		return "common/index";
 	}
 	/** 관리자 로그인 유효성검사
 	 *
